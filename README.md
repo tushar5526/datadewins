@@ -1,5 +1,4 @@
 # datadewins
-Tasks of datadewins
 
-- Install debian on VM
+- [week 1](week1/README.md)
 
