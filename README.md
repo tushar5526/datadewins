@@ -5,4 +5,4 @@
 - [Partitons](week1/partition.html)
 
 ## Week 2 - 3
-- [Slide 2](week2-3/README.md)
+- [Slide 2](week2-3/README.md#slide-1)

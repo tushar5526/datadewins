@@ -1,7 +1,8 @@
 # Week 3-4
 
 ## Slide 1
-                                                                        
+
+```                                                                     
 Preparation steps:                                                           
                                                                     
 +- Create bin directory in home ( ~ ) directory                             
@@ -17,4 +18,4 @@ HINT:
 +- make sure ~/bin is avaialable in PATH                                    
 +- set execute permissions and add PATH entris appropriately                
 +- make sure first sudo user is able to run commands with sudo              
-                                                                                     
+```                                                                                     
