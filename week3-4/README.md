@@ -20,7 +20,7 @@ HINT:
 +- make sure first sudo user is able to run commands with sudo              
 ```                                                                                     
 
-Solution:
+**Solution:**
 
 ```
 #!/bin/bash
@@ -58,4 +58,19 @@ HINT:
 +- test if directory already exists                                               
 +- if directory exists, no action needed                                      
 +- else create directory                                                      
+```
+
+**Solution:**
+
+```
+files=(data tmp)
+for i in ${files[@]}; do
+	tmp=$(find ~ -type d -name $i)
+	if [[ -z $tmp ]]; then
+		mkdir ~/$i
+		echo "Creating $i Folder"
+		continue
+	fi
+	echo "Dir $i already exists"
+done
 ```

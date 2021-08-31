@@ -17,3 +17,17 @@ fi
 
 echo "Adding $fnrUser to sudo group"
 usermod -aG sudo $fnrUser
+
+# Slide 3
+
+files=(data tmp)
+for i in ${files[@]}; do
+	tmp=$(find ~ -type d -name $i)
+	if [[ -z $tmp ]]; then
+		mkdir ~/$i
+		echo "Creating $i Folder"
+		continue
+	fi
+	echo "Dir $i already exists"
+done
+
