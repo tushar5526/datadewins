@@ -31,3 +31,10 @@ for i in ${files[@]}; do
 	echo "Dir $i already exists"
 done
 
+# Slide 4
+touch ~/data/packages.list
+packages=(vim gtypist mdp git)
+echo -n > ~/data/packages.list
+for i in ${packages[@]}; do 
+	echo $i >> ~/data/packages.list
+done

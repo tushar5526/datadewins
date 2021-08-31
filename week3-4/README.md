@@ -74,3 +74,31 @@ for i in ${files[@]}; do
 	echo "Dir $i already exists"
 done
 ```
+
+## Slide 4
+
+```
+Create sample data:                                                                
+...................                      
+
+Let us populate some sample data in files for next steps                           
++- create file packages.list in ~/data directory                                  
++- populate packages.list with following content  
+
+vim                                                                                
+gtypist                                                                            
+mdp                                                                                
+git                                                                                
+
+```
+
+**Solution:**
+```
+touch ~/data/packages.list
+packages=(vim gtypist mdp git)
+echo -n > ~/data/packages.list
+for i in ${packages[@]}; do 
+	echo $i >> ~/data/packages.list
+done
+```
+
