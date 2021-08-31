@@ -48,3 +48,17 @@ done
 
 echo "Succesfully added the data"
 
+
+# Slide 5
+tmp=$(find ~/data -type f -name packages.list)
+if [[ -z $tmp ]]; then
+	echo "packages.list not found"
+	exit
+fi
+echo $tmp
+while IFS= read -r line; do 
+	apt install $line;
+	echo 'Installed '$line; 
+done < $tmp
+
+

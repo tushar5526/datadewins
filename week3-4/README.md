@@ -114,4 +114,33 @@ done
 echo "Succesfully added the data"
 ```
 
+## Slide 5
+```
+Enhance ~/bin/setup.sh to:                                                         
+..........................                                                         
+Install packages                                                                   
++- Create a simple script ( ~/bin/setup.sh ) that                                
+	+- checks if ~/data/packages.list file exists                                 
+	+- reads ~/data/packages.list file                                            
+	+- store each package name in a loop variable, one-by-one                     
+	+- install the package in loop iteration                                      
+HINT:                                                                             
++- use file tests                                                                 
++- use read builtin with while loop                                               
++- use apt to install packages. this needs sudo access  
+```
 
+**Solution**
+
+```
+tmp=$(find ~/data -type f -name packages.list)
+if [[ -z $tmp ]]; then
+	echo "packages.list not found"
+	exit
+fi
+echo $tmp
+while IFS= read -r line; do 
+	apt install $line;
+	echo 'Installed '$line; 
+done < $tmp
+```
