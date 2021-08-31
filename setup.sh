@@ -38,3 +38,13 @@ echo -n > ~/data/packages.list
 for i in ${packages[@]}; do 
 	echo $i >> ~/data/packages.list
 done
+
+touch ~/data/users.list
+packages=(user1 user2 user3)
+echo -n > ~/data/users.list
+for i in ${packages[@]}; do
+        echo $i >> ~/data/users.list
+done
+
+echo "Succesfully added the data"
+
