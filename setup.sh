@@ -61,4 +61,27 @@ while IFS= read -r line; do
 	echo 'Installed '$line; 
 done < $tmp
 
+# Slide 6
+tmp=$(find ~/data -type f -name users.list)
+if [[ -z $tmp ]]; then
+        echo "users.list not found"
+        exit
+fi
+echo $tmp
+while IFS= read -r line; do
+	flag=$(grep -c '^$line' /etc/passwd)
+	if [[ $flag -ne 0 ]]
+       	then
+		echo $line' exists'
+	else
+		useradd -m $line
+	fi
+done < $tmp
+
+# Slide 7
+if [[ $1 == "help" ]]; then
+	echo "Help for "$0
+	echo "Script that adds users and packages according to data folder"
+fi
+
 

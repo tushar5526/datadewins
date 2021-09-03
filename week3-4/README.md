@@ -21,6 +21,7 @@ HINT:
 ```                                                                                     
 
 **Solution:**
+---------------
 
 ```
 #!/bin/bash
@@ -61,6 +62,7 @@ HINT:
 ```
 
 **Solution:**
+---------------
 
 ```
 files=(data tmp)
@@ -96,6 +98,8 @@ git
 ```
 
 **Solution:**
+---------------
+
 ```
 touch ~/data/packages.list
 packages=(vim gtypist mdp git)
@@ -131,6 +135,7 @@ HINT:
 ```
 
 **Solution**
+---------------
 
 ```
 tmp=$(find ~/data -type f -name packages.list)
@@ -143,4 +148,76 @@ while IFS= read -r line; do
 	apt install $line;
 	echo 'Installed '$line; 
 done < $tmp
+```
+
+# Slide 6
+
+```
+Enhance ~/bin/setup.sh to:                                                         
+..........................                                                         
+
+Add Users                                                                          
+
++- Create a simple script that                                                    
+	+- checks if ~/data/users.list file exists                                    
+	+- read ~/data/users.list file                                                
+	+- store each user name in a loop variable, one-by-one                        
+	+- create user                                                                
+
+Enhance script                                                                     
+
++- Ask user for the name of the file on program start                             
++- Ensure current user has sudo rights at the start                              
++- Verify user does not exist already, before creation                            
++- If program fails, return with proper exit code                                 
++- Show final stauts of the packages from the list         
+```
+
+**Solution**
+---------------
+
+```
+tmp=$(find ~/data -type f -name users.list)
+if [[ -z $tmp ]]; then
+        echo "users.list not found"
+        exit
+fi
+echo $tmp
+while IFS= read -r line; do
+	flag=$(grep -c '^$line' /etc/passwd)
+	if [[ $flag -ne 0 ]]
+       	then
+		echo $line' exists'
+	else
+		useradd -m $line
+	fi
+done < $tmp
+```
+
+# Slide 7
+
+```
+Enhance ~/bin/setup.sh to:                                                         
+..........................   
+
+Add help option            
+
++- Check if firt argument is help                                                 
++- if first agument is help                                                       
+	+- show message help for my_program                                           
+
+HINT :                                                                             
+
++- Use positional parameters to scripts                                           
++- Use special variable for scriptname to replace my_program                      
++- Use bash if consruct to check argument value                                   
+```
+
+**Solution**
+---------------
+```
+if [[ $1 == "help" ]]; then
+	echo "Help for "$0
+	echo "Script that adds users and packages according to data folder"
+fi
 ```

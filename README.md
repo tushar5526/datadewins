@@ -9,3 +9,5 @@
 - [Slide 3](week3-4/README.md#slide-3)
 - [Slide 4](week3-4/README.md#slide-4)
 - [Slide 5](week3-4/README.md#slide-5)
+- [Slide 6](week3-4/README.md#slide-6)
+- [Slide 7](week3-4/README.md#slide-7)
