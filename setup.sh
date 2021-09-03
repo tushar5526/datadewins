@@ -78,10 +78,15 @@ while IFS= read -r line; do
 	fi
 done < $tmp
 
-# Slide 7
+# Slide 8
 if [[ $1 == "help" ]]; then
 	echo "Help for "$0
 	echo "Script that adds users and packages according to data folder"
+elif [[ $1 == "suid_audit" ]]; then
+	echo $PATH
+	echo -n > ~/tmp/suid_audit.txt
+	for path in ${PATH//:/ }; do
+		echo "Finding files with suid permission in $path"
+		find $path -type f -perm -u=s >> ~/tmp/suid_audit.txt
+	done
 fi
-
-

@@ -221,3 +221,40 @@ if [[ $1 == "help" ]]; then
 	echo "Script that adds users and packages according to data folder"
 fi
 ```
+
+# Slide 8
+
+```
+Enhance ~/bin/setup.sh to:                                                         
+..........................    
+                      
+Add first feature                                                                  
+
++- Add argument suid_audit                                                        
+|   +- retain help option from previous excercise                                 
++- if first argument to script is suid_audit                                      
+	+- run find command with sudo on all directories in PATH                      
+	+- identify all files with suid permission on                                 
+	+- save list of files in ~/tmp/suid_audit.txt file                            
+																					
+HINT:                                                                              
+																					
++- Use find command                                                               
++- Use if.. else bash construct to check options  
+```
+
+**Solution**
+--------------
+```
+if [[ $1 == "help" ]]; then
+	echo "Help for "$0
+	echo "Script that adds users and packages according to data folder"
+elif [[ $1 == "suid_audit" ]]; then
+	echo $PATH
+	echo -n > ~/tmp/suid_audit.txt
+	for path in ${PATH//:/ }; do
+		echo "Finding files with suid permission in $path"
+		find $path -type f -perm -u=s >> ~/tmp/suid_audit.txt
+	done
+fi
+```
