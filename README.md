@@ -12,3 +12,6 @@
 - [Slide 6](week3-4/README.md#slide-6)
 - [Slide 7](week3-4/README.md#slide-7)
 - [Slide 8](week3-4/README.md#slide-8)
+
+## Week 3 - 4
+- [Docker mini project](dockerMiniProject/README.md)
